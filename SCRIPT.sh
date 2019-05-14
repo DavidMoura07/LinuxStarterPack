@@ -36,8 +36,8 @@ curl https://nodejs.org/dist/v10.15.0/node-v10.15.0-linux-x64.tar.xz --output no
 tar -Jxxvf node.tar.xz
 rm node.tar.xz
 cp node-v10.15.0-linux-x64/* . -R
-chown $usuario * -R
-echo 'export PATH="$PATH:/usr/local/bin/node/bin"' >> /home/$usuario/.profile
+chown $USER * -R
+echo 'export PATH="$PATH:/usr/local/bin/node/bin"' >> /home/$USER/.profile
 export PATH="$PATH:/usr/local/bin/node/bin"
 npm install -g npm
 
@@ -47,9 +47,9 @@ npm i -g @nestjs/cli typescript
 
 #####################################################################
 # Docker
-cd /$usuario/Downloads
+cd /$USER/Downloads
 curl get.docker.com -Lo - | sh
-usermod -aG docker $usuario
+usermod -aG docker $USER
 curl -L https://github.com/docker/compose/releases/download/1.23.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
@@ -65,8 +65,8 @@ curl https://dl.pstmn.io/download/latest/linux64 --output postman.tar.gz
 tar -zxvf postman.tar.gz
 rm postman.tar.gz
 chmod +x Postman/Postman
-chown $usuario Postman -R
-echo 'export PATH="$PATH:/usr/share/Postman"' >> /home/$usuario/.profile
+chown $USER Postman -R
+echo 'export PATH="$PATH:/usr/share/Postman"' >> /home/$USER/.profile
 
 # Gerando o ícone do Postman
 touch /usr/share/applications/Postman.desktop
@@ -96,8 +96,8 @@ curl http://eclipse.c3sl.ufpr.br/technology/epp/downloads/release/2018-12/R/ecli
 tar -zxvf eclipse.tar.gz
 rm eclipse.tar.gz
 chmod +x eclipse/eclipse
-chown $usuario eclipse -R
-echo 'export PATH="$PATH:/usr/share/eclipse"' >> /home/$usuario/.profile
+chown $USER eclipse -R
+echo 'export PATH="$PATH:/usr/share/eclipse"' >> /home/$USER/.profile
 # Gerando o ícone do Eclipse
 touch /usr/share/applications/Eclipse.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/Eclipse.desktop
@@ -119,8 +119,8 @@ wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scann
 unzip sonar-scanner-cli-3.3.0.1492-linux.zip
 rm sonar-scanner-cli-3.3.0.1492-linux.zip
 chmod +x sonar-scanner-3.3.0.1492-linux/bin/sonar-scanner
-chown $usuario sonar-scanner-3.3.0.1492-linux -R
-echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$usuario/.profile
+chown $USER sonar-scanner-3.3.0.1492-linux -R
+echo 'export PATH="$PATH:/usr/share/sonar-scanner-3.3.0.1492-linux/bin"' >> /home/$USER/.profile
 
 #####################################################################
 # robo 3t
@@ -128,11 +128,11 @@ cd /usr/share
 wget https://download.robomongo.org/1.2.1/linux/robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
 tar -zxvf robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
 rm robo3t-1.2.1-linux-x86_64-3e50a65.tar.gz
-chown $usuario robo3t-1.2.1-linux-x86_64-3e50a65/ -R
+chown $USER robo3t-1.2.1-linux-x86_64-3e50a65/ -R
 cd robo3t-1.2.1-linux-x86_64-3e50a65/
 chmod +x bin/robo3t
-chown $usuario sonar-scanner-3.3.0.1492-linux -R
-echo 'export PATH="$PATH:/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin"' >> /home/$usuario/.profile
+chown $USER sonar-scanner-3.3.0.1492-linux -R
+echo 'export PATH="$PATH:/usr/share/robo3t-1.2.1-linux-x86_64-3e50a65/bin"' >> /home/$USER/.profile
 
 # Gerando o ícone do robo3t
 touch /usr/share/applications/Robo3t.desktop
@@ -149,7 +149,7 @@ echo "StartupNotify=true" >> /usr/share/applications/Robo3t.desktop
 #####################################################################
 
 # DotNet Core 2.1 SDK
-cd /home/$usuario/Downloads
+cd /home/$USER/Downloads
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb
@@ -170,8 +170,8 @@ unzip android-studio-ide-181.5056338-linux.zip
 rm android-studio-ide-181.5056338-linux.zip
 cd android-studio
 chmod +x bin/* -R 
-echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /home/$usuario/.profile
-chown $usuario /usr/share/android-studio -R
+echo 'export PATH="$PATH:/usr/share/android-studio/bin"' >> /home/$USER/.profile
+chown $USER /usr/share/android-studio -R
 touch /usr/share/applications/AndroidStudio.desktop
 echo "[Desktop Entry]" >> /usr/share/applications/AndroidStudio.desktop
 echo "Type=Application" >> /usr/share/applications/AndroidStudio.desktop
@@ -209,7 +209,7 @@ cd /usr
 wget https://ufpr.dl.sourceforge.net/project/pentaho/Pentaho%208.2/client-tools/pdi-ce-8.2.0.0-342.zip
 unzip pdi-ce-8.2.0.0-342.zip
 rm pdi-ce-8.2.0.0-342.zip
-chown $usuario /usr/data-integration -R
+chown $USER /usr/data-integration -R
 chmod +x /usr/data-integration/spoon.sh
 
 # Gerando o ícone do PDI
@@ -234,9 +234,9 @@ tar -zxvf logstash-6.6.1.tar.gz
 rm logstash-6.6.1.tar.gz
 mv logstash-6.6.1/ logstash
 chmod +x logstash/bin/ -R
-chown $usuario logstash -R
-echo 'export PATH="$PATH:/usr/share/logstash/bin"' >> /home/$usuario/.profile
-source /home/$usuario/.profile
+chown $USER logstash -R
+echo 'export PATH="$PATH:/usr/share/logstash/bin"' >> /home/$USER/.profile
+source /home/$USER/.profile
 mkdir logstash/activemq
 curl http://central.maven.org/maven2/org/apache/activemq/activemq-all/5.15.8/activemq-all-5.15.8.jar -o /usr/share/logstash/activemq/activemq-all-5.15.8.jar
 logstash-plugin install logstash-output-jdbc
